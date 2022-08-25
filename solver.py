@@ -1,3 +1,5 @@
+#The given board, is our sudoku that's waiting to be solved
+#it's a list of lists 
 board = [
     [7,8,0,4,0,0,1,2,0],
     [6,0,0,0,7,5,0,0,9],
@@ -9,7 +11,6 @@ board = [
     [1,2,0,0,0,7,4,0,0],
     [0,4,9,2,0,6,0,0,7]
 ]
-
 
 
 def find_solution(ls):
@@ -26,7 +27,9 @@ def find_solution(ls):
                     
                 ls[next_box[0]][next_box[1]] =0
         return False  
-            
+
+#finds the next empty box on a sudoku board.
+#returns the two integers the row and the column position of the next empty box.
 def find_empty(ls):
     for r in range(0,9):
        for c in range(0,9):
@@ -34,6 +37,7 @@ def find_empty(ls):
                 return r,c
     return None
 
+#checks if a given number "num" can be inserted to a given box based on sudoku rules. 
 def is_valid(ls,num,r,c):
     #for the rows
     for i in ls[r]:
@@ -52,6 +56,9 @@ def is_valid(ls,num,r,c):
                 return False
     return True
 
+#Calling the find_solution function, with argument board, then printing the final solution.  
+##########
 find_solution(board)
 for i in board:
     print(i)
+###########
